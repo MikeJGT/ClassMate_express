@@ -1,0 +1,23 @@
+@host = http://localhost:3000
+@urlusuarios = /api/usuarios
+
+
+### USUARIO
+
+POST {{host}}{{urlusuarios}}/login
+###
+
+POST {{host}}{{urlusuarios}}/registro
+Content-Type: application/json
+
+{
+ "nombre": "Pepe", 
+"apellidos": "Sanchez", 
+"dni": "87654321A", 
+"email": "pepe@gmail.com",
+"password": "12345",
+"rol":"alumno", 
+"genero":"f", 
+"direccion":"calle1",
+"nacimiento":"1998-01-01"  
+}
