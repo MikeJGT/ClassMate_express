@@ -4,7 +4,7 @@ const getAlumnos = () => {
     return db.query("SELECT * FROM escuelabeta_Definitivo.usuarios where rol = 'alumno'");
 }
 
-// Ver un Alumno en Particular
+// Ver un Alumno en Particular - Cambiar query
 const getAlumno = (idAlumno) => {
     return db.query(`SELECT u.*
 FROM escuelabeta_Definitivo.usuarios AS u
