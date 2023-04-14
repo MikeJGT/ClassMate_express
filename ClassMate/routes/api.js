@@ -1,6 +1,11 @@
 const router = require('express').Router();
 
-
-
+// Usuarios
 router.use('/usuarios', require('./api/usuarios'));
-module.exports = router; 
+
+// Profesores
+router.use('/profesor', require('./api/profesor'));
+
+
+
+module.exports = router;
