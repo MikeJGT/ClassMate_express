@@ -33,6 +33,7 @@ Content-Type: application/json
 ### PROFESOR
 
 GET {{host}}{{urlProfesores}}/alumno
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
 ###
 GET  {{host}}{{urlProfesores}}/alumno/2
 ###

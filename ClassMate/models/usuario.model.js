@@ -13,9 +13,15 @@ const getByEmail = (email) => {
     );
 }
 
+// Busco usuario por id
+const getById = (userId) => {
+    return db.query('SELECT * FROM escuelabeta_definitivo.usuarios where id = ?', [userId])
+};
+
 module.exports = {
     create,
-    getByEmail
+    getByEmail,
+    getById
 };
 /*
 nombre varchar(100) 
