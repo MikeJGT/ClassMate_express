@@ -1,5 +1,6 @@
 @host = http://localhost:3000
 @urlusuarios = /api/usuarios
+@urlProfesores = /api/profesor
 
 
 ### USUARIO
@@ -21,3 +22,11 @@ Content-Type: application/json
 "direccion":"calle1",
 "nacimiento":"1998-01-01"  
 }
+
+### PROFESOR
+
+GET {{host}}{{urlProfesores}}/alumno
+###
+GET  {{host}}{{urlProfesores}}/alumno/2
+###
+POST {{host}}{{urlProfesores}}/asignatura/1
