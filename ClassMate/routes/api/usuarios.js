@@ -3,7 +3,7 @@ const { create, getByEmail } = require('../../models/usuario.model');
 
 const router = require('express').Router();
 
-
+//Regitro de usuario
 router.post('/registro', async (req, res) => {
     //res.send('Funciona')
     try {
@@ -14,6 +14,8 @@ router.post('/registro', async (req, res) => {
         res.json({ fatal: error.message })
     }
 })
+
+//Login para usuario
 router.post('/login', async (req, res) => {
     //res.send('Funciona');
     try {
