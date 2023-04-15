@@ -1,6 +1,7 @@
 @host = http://localhost:3000
 @urlusuarios = /api/usuarios
 @urlProfesores = /api/profesor
+@urlConversaciones = /api/conversacion
 
 
 ### USUARIO
@@ -38,3 +39,15 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoi
 GET  {{host}}{{urlProfesores}}/alumno/2
 ###
 POST {{host}}{{urlProfesores}}/asignatura/1
+
+
+### CONVERSACIONES
+POST {{host}}{{urlConversaciones}}
+Content-Type: application/json
+
+{
+    "asunto": "conversacion2"
+}
+
+###
+GET {{host}}{{urlConversaciones}}/2
