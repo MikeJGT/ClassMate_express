@@ -8,5 +8,18 @@ const getConversacionById = (asuntoId) => {
     return db.query('SELECT * FROM escuelabeta_Definitivo.conversaciones WHERE id = ?', [asuntoId])
 }
 
+// MENSAJES
 
-module.exports = { InsertConversation, getConversacionById }
+// insertar mensaje
+const InsertMessage = ({ contenido, emisor_id, receptor_id, conversaciones_id, fecha }) => {
+    return db.query('INSERT INTO escuelabeta_definitivo.mensaje (contenido,emisor_id,receptor_id,conversaciones_id,fecha) VALUES (?,?,?,?,?);', [contenido, emisor_id, receptor_id, conversaciones_id, fecha])
+}
+
+// Recuperar mensajes por conversación
+const getMensajeByConversacionId = (conversacionId) => {
+    return db.query('SELECT * FROM escuelabeta_definitivo.mensaje WHERE conversaciones_id = ?;', [conversacionId])
+}
+
+
+
+module.exports = { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId }

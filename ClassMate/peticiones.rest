@@ -51,3 +51,17 @@ Content-Type: application/json
 
 ###
 GET {{host}}{{urlConversaciones}}/2
+### insertar mensaje
+POST {{host}}{{urlConversaciones}}/mensaje
+Content-Type: application/json
+
+{
+    "contenido": "mensaje1",
+    "emisor_id": 1,
+    "receptor_id": 2,
+    "conversaciones_id": 2,
+    "fecha": "2021-02-09"
+}
+
+### Recuperar mensaje por conversación
+GET {{host}}{{urlConversaciones}}/mensaje/5

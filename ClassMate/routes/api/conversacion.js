@@ -1,4 +1,4 @@
-const { InsertConversation, getConversacionById } = require('../../models/conversacion.model');
+const { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId } = require('../../models/conversacion.model');
 
 const router = require('express').Router();
 
@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
         console.log(asunto)
         res.json(asunto)
     } catch (error) {
-        res.json({ fatal: 'No has guardado asunto' })
+        res.json({ fatal: error.message })
     }
 });
 
@@ -18,9 +18,38 @@ router.get('/:conversacionId', async (req, res) => {
     const { conversacionId } = req.params
     try {
         const [asunto] = await getConversacionById(conversacionId)
+        if (asunto.length === 0) {
+            res.json('No existe conversación')
+        }
         res.json(asunto)
     } catch (error) {
-        res.json({ fatal: 'No hay asuntos' })
+        res.json({ fatal: error.message })
+    }
+})
+
+// insertar mensaje
+router.post('/mensaje', async (req, res) => {
+    try {
+        const [mensaje] = await InsertMessage(req.body)
+        res.json(mensaje)
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
+
+// Recuperar mensaje por Conversación
+router.get('/mensaje/:conversacionId', async (req, res) => {
+    const { conversacionId } = req.params
+
+    try {
+        const [mensaje] = await getMensajeByConversacionId(conversacionId)
+        console.log(mensaje);
+        if (mensaje.length === 0) {
+            res.json('No hay mensajes en esta conversación')
+        }
+        res.json(mensaje)
+    } catch (error) {
+        res.json({ fatal: error.message })
     }
 })
 
