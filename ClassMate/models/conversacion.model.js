@@ -20,6 +20,10 @@ const getMensajeByConversacionId = (conversacionId) => {
     return db.query('SELECT * FROM escuelabeta_definitivo.mensaje WHERE conversaciones_id = ?;', [conversacionId])
 }
 
+// Recuperar Conversaciones
+const getConversaciones = () => {
+    return db.query('SELECT * FROM escuelabeta_Definitivo.conversaciones')
+}
 
 
-module.exports = { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId }
+module.exports = { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId, getConversaciones }

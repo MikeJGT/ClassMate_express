@@ -50,7 +50,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{host}}{{urlConversaciones}}/2
+GET {{host}}{{urlConversaciones}}/10
 ### insertar mensaje
 POST {{host}}{{urlConversaciones}}/mensaje
 Content-Type: application/json
@@ -64,4 +64,7 @@ Content-Type: application/json
 }
 
 ### Recuperar mensaje por conversación
-GET {{host}}{{urlConversaciones}}/mensaje/5
+GET {{host}}{{urlConversaciones}}/mensaje/2
+
+###
+GET {{host}}{{urlConversaciones}}

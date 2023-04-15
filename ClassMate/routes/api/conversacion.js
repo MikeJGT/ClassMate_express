@@ -1,4 +1,4 @@
-const { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId } = require('../../models/conversacion.model');
+const { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId, getConversaciones } = require('../../models/conversacion.model');
 
 const router = require('express').Router();
 
@@ -13,7 +13,17 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Recuperar conversacion
+//Recuperar Conversaciones
+router.get('/', async (req, res) => {
+    try {
+        const [result] = await getConversaciones()
+        res.json(result)
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
+
+// Recuperar conversacion por Id
 router.get('/:conversacionId', async (req, res) => {
     const { conversacionId } = req.params
     try {
@@ -25,7 +35,9 @@ router.get('/:conversacionId', async (req, res) => {
     } catch (error) {
         res.json({ fatal: error.message })
     }
-})
+});
+
+
 
 // insertar mensaje
 router.post('/mensaje', async (req, res) => {
