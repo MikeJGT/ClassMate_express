@@ -31,7 +31,7 @@ router.post('/asignatura/:profesorId', async (req, res) => {
     const { profesorId } = req.params
 
     try {
-        const [asig] = await insertSubject(profesorId)
+        const [asig] = await insertSubject(req.body, profesorId)
         res.json(asig)
     } catch (error) {
         res.json({ fatal: error.message })

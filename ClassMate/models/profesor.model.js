@@ -4,18 +4,15 @@ const getAlumnos = () => {
     return db.query("SELECT * FROM escuelabeta_Definitivo.usuarios where rol = 'alumno'");
 }
 
-// Ver un Alumno en Particular - Cambiar query
+// Ver un Alumno en Particular 
 const getAlumno = (idAlumno) => {
-    return db.query(`SELECT u.*
-FROM escuelabeta_Definitivo.usuarios AS u
-JOIN padre_has_alumnos pa ON u.id = pa.alumno_id
-WHERE u.rol = 'alumno' AND pa.alumno_id = ?`, [idAlumno])
+    return db.query(`SELECT * FROM usuarios WHERE id = ? AND rol = 'alumno';`, [idAlumno])
 }
 
 
 // Insertar asignatura
-const insertSubject = (idProfesor) => {
-    return db.query("INSERT INTO asignaturas (nombre, profesor_id) VALUES('Fisica',? ) ", [idProfesor])
+const insertSubject = ({ nombre }, idProfesor) => {
+    return db.query("INSERT INTO asignaturas (nombre, profesor_id) VALUES(?,? ) ", [nombre, idProfesor])
 }
 
 module.exports = { getAlumnos, insertSubject, getAlumno }

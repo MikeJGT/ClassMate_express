@@ -38,10 +38,16 @@ Content-Type: application/json
 GET {{host}}{{urlProfesores}}/alumno
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
 ###
-GET  {{host}}{{urlProfesores}}/alumno/2
+GET  {{host}}{{urlProfesores}}/alumno/4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
 ###
 POST {{host}}{{urlProfesores}}/asignatura/1
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
 
+{
+    "nombre": "Ingles"
+}
 
 ### CONVERSACIONES
 POST {{host}}{{urlConversaciones}}
