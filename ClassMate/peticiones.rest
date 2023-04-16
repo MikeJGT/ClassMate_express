@@ -76,6 +76,9 @@ GET {{host}}{{urlConversaciones}}
 ### Recuperar tarea por classId
 GET {{host}}{{urlTareas}}/clase/1
 
+### Recuperar tarea por profesorID
+GET {{host}}{{urlTareas}}/profesor/3
+
 ###Insertar la tarea
 POST {{host}}{{urlTareas}}
 Content-Type: application/json
