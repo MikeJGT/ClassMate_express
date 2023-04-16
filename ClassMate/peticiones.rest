@@ -2,8 +2,9 @@
 @urlusuarios = /api/usuarios
 @urlProfesores = /api/profesor
 @urlConversaciones = /api/conversacion
-
 @urlTareas = /api/tarea
+@urlHorario = /api/horario
+
 
 ### USUARIO
 
@@ -97,3 +98,38 @@ Content-Type: application/json
 
 ### Borrar la tarea
 DELETE {{host}}{{urlTareas}}/3
+
+
+### HORARIO ###
+
+### Insertar Horario ###
+POST {{host}}{{urlHorario}}
+Content-Type: application/json
+
+{
+    "inicio": "17:00:00",
+    "fin": "18:00:00",
+    "dia": "j",
+    "asignaturas_id": 3,
+    "clases_id": 2
+}
+
+### Recuperar horario por Clase
+GET {{host}}{{urlHorario}}/1
+
+### Recuperar horario por profesor
+GET {{host}}{{urlHorario}}/profesor/1
+
+### Actualizar Horario
+PUT {{host}}{{urlHorario}}/1
+Content-Type: application/json
+
+{
+    "inicio": "14:00:00",
+    "fin": "15:00:00",
+    "dia": "m"
+}
+
+### Borrar Horario
+DELETE {{host}}{{urlHorario}}/2
+

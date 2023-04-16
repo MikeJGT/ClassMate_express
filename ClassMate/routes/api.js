@@ -10,8 +10,11 @@ router.use('/profesor', checkToken, require('./api/profesor'));
 
 // Conversacion
 router.use('/conversacion', require('./api/conversacion'));
-// Tareas
 
+// Tareas
 router.use('/tarea', require('./api/tarea'));
+
+// Horario
+router.use('/horario', require('./api/horario'))
 
 module.exports = router;

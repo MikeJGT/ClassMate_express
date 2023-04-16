@@ -14,6 +14,7 @@ const getTaskByClassId = (classId) => {
         [classId]
     );
 }
+
 //Query de moficar tarea
 const modifyTarea = ({ titulo }, tareaId) => {
     return db.query('UPDATE escuelabeta_definitivo.tareas SET tareas.titulo = ? WHERE tareas.id = ?', [titulo, tareaId]);
