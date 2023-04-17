@@ -17,4 +17,7 @@ router.use('/tarea', require('./api/tarea'));
 // Horario
 router.use('/horario', require('./api/horario'))
 
+//Clase
+router.use('/clase', require('./api/clases'))
+
 module.exports = router;

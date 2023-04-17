@@ -31,6 +31,7 @@ const getTaskProfesorByIDTarea = (idTarea) => {
     where t.id = ?`, [idTarea])
 }
 
+
 //Query de moficar tarea
 const modifyTarea = ({ titulo, contenido, fecha_entrega }, tareaId) => {
     return db.query('UPDATE escuelabeta_definitivo.tareas SET tareas.titulo = ?, tareas.contenido = ?, tareas.fecha_entrega = ? WHERE tareas.id = ?', [titulo, contenido, fecha_entrega, tareaId]);
@@ -42,6 +43,8 @@ const deleteTarea = (tareaId) => {
         [tareaId]
     )
 }
+
+
 
 module.exports = {
     insertTarea,
