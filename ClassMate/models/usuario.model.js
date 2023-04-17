@@ -18,10 +18,18 @@ const getById = (userId) => {
     return db.query('SELECT * FROM escuelabeta_definitivo.usuarios where id = ?', [userId])
 };
 
+//Busco usuario de alumnos(hijos) por TutorId
+const getByTutorId = (tutorId) => {
+    return db.query(`SELECT u.* FROM escuelabeta_definitivo.padre_has_alumnos as tut
+    JOIN escuelabeta_definitivo.usuarios as u on u.id = tut.alumno_id
+    WHERE tut.padre_id = ?`, [tutorId]);
+}
+
 module.exports = {
     create,
     getByEmail,
-    getById
+    getById,
+    getByTutorId
 };
 /*
 nombre varchar(100) 
