@@ -22,10 +22,18 @@ const getTaskByProfesorId = (profesorId) => {
     JOIN escuelabeta_definitivo.usuarios as u on u.id = asig.profesor_id
     where profesor_id = ?`, [profesorId]);
 }
+//Query de sacar tarea con profesor por ID Tarea
+const getTaskProfesorByIDTarea = (idTarea) => {
+    return db.query(`SELECT t.*, asig.nombre as "asignatura", c.nombre as "clase",u.nombre as 'Profesor'  FROM escuelabeta_definitivo.tareas as t
+    JOIN escuelabeta_definitivo.clases as c on c.id = t.clases_id
+    JOIN escuelabeta_definitivo.asignaturas as asig ON asig.id = t.asignaturas_id
+    JOIN escuelabeta_definitivo.usuarios as u on u.id = asig.profesor_id
+    where t.id = ?`, [idTarea])
+}
 
 //Query de moficar tarea
-const modifyTarea = ({ titulo }, tareaId) => {
-    return db.query('UPDATE escuelabeta_definitivo.tareas SET tareas.titulo = ? WHERE tareas.id = ?', [titulo, tareaId]);
+const modifyTarea = ({ titulo, contenido, fecha_entrega }, tareaId) => {
+    return db.query('UPDATE escuelabeta_definitivo.tareas SET tareas.titulo = ?, tareas.contenido = ?, tareas.fecha_entrega = ? WHERE tareas.id = ?', [titulo, contenido, fecha_entrega, tareaId]);
 }
 
 //Query borrar tarea
@@ -40,5 +48,6 @@ module.exports = {
     getTaskByClassId,
     modifyTarea,
     deleteTarea,
-    getTaskByProfesorId
+    getTaskByProfesorId,
+    getTaskProfesorByIDTarea
 }

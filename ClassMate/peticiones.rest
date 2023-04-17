@@ -85,6 +85,9 @@ GET {{host}}{{urlTareas}}/clase/1
 ### Recuperar tarea por profesorID
 GET {{host}}{{urlTareas}}/profesor/3
 
+###Recupera tarea  profesor por ID 
+GET {{host}}{{urlTareas}}/1
+
 ###Insertar la tarea
 POST {{host}}{{urlTareas}}
 Content-Type: application/json
@@ -102,7 +105,8 @@ PUT  {{host}}{{urlTareas}}/1
 Content-Type: application/json
 
 {
-    "titulo": "Tarea dificil"
+    "titulo": "Tarea dificil",
+    "contenido": "ded"
 }
 
 ### Borrar la tarea
