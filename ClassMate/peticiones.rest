@@ -116,6 +116,8 @@ Content-Type: application/json
 ### Borrar la tarea
 DELETE {{host}}{{urlTareas}}/3
 
+### CLASE ####
+GET {{host}}{{urlClase}}/alumnos/6
 
 ### HORARIO ###
 
