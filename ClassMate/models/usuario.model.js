@@ -25,11 +25,17 @@ const getByTutorId = (tutorId) => {
     WHERE tut.padre_id = ?`, [tutorId]);
 }
 
+// Buscar usuario tutor
+const getTutor = () => {
+    return db.query("SELECT * FROM escuelabeta_Definitivo.usuarios where usuarios.rol = 'tutor'")
+}
+
 module.exports = {
     create,
     getByEmail,
     getById,
-    getByTutorId
+    getByTutorId,
+    getTutor
 };
 /*
 nombre varchar(100) 
