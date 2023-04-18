@@ -37,7 +37,7 @@ Content-Type: application/json
 ###
 
 //Recupera usuario alumno por tutorID
-GET {{host}}{{urlusuarios}}/tutor/2
+GET {{host}}{{urlusuarios}}/tutor/id/2
 
 ###
 // Recuperar usuario tutor

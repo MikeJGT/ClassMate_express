@@ -50,7 +50,7 @@ router.get('/tutor/:nombre', async (req, res) => {
 })
 
 // Usuario alumnos por tutorId
-router.get('/tutor/:tutorId', async (req, res) => {
+router.get('/tutor/id/:tutorId', async (req, res) => {
     const { tutorId } = req.params
     try {
         const [alumnos] = await getByTutorId(tutorId);
