@@ -7,6 +7,8 @@
 
 @urlClase = /api/clase
 
+@urlAsignatura = /api/asignatura
+
 
 ### USUARIO
 
@@ -130,8 +132,16 @@ Content-Type: application/json
 ### Borrar la tarea
 DELETE {{host}}{{urlTareas}}/3
 
+
 ### CLASE ####
 GET {{host}}{{urlClase}}/alumnos/6
+
+### Recupera todas las clases
+GET {{host}}{{urlClase}}
+
+### Recupera una clase por claseId
+GET {{host}}{{urlClase}}/3
+
 
 ### HORARIO ###
 
@@ -165,4 +175,10 @@ Content-Type: application/json
 
 ### Borrar Horario
 DELETE {{host}}{{urlHorario}}/2
+
+
+### ASIGNATURAS
+
+### Recupera todas las asignaturas
+GET {{host}}{{urlAsignatura}}
 

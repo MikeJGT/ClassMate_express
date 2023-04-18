@@ -1,5 +1,5 @@
 const getAllClases = () => {
-
+    return db.query(`SELECT c.id as 'clase_id', c.nombre  FROM escuelabeta_definitivo.clases as c;`);
 }
 
 
@@ -11,6 +11,12 @@ const getClaseByAlumnoID = (alumId) => {
 `, [alumId]);
 }
 
+const getClaseById = (claseId) => {
+    return db.query(`SELECT c.id,c.nombre as 'clase' FROM escuelabeta_definitivo.clases as c
+    where c.id = ?;`, [claseId]);
+}
 module.exports = {
-    getClaseByAlumnoID
+    getClaseByAlumnoID,
+    getAllClases,
+    getClaseById
 }

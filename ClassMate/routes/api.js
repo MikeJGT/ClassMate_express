@@ -15,9 +15,12 @@ router.use('/conversacion', require('./api/conversacion'));
 router.use('/tarea', require('./api/tarea'));
 
 // Horario
-router.use('/horario', require('./api/horario'))
+router.use('/horario', require('./api/horario'));
 
 //Clase
-router.use('/clase', require('./api/clases'))
+router.use('/clase', require('./api/clases'));
+
+//asignatura
+router.use('/asignatura', require('./api/asignaturas'));
 
 module.exports = router;
