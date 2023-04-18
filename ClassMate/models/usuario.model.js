@@ -20,7 +20,7 @@ const getById = (userId) => {
 
 //Busco usuario de alumnos(hijos) por TutorId
 const getByTutorId = (tutorId) => {
-    return db.query(`SELECT u.*, cla.nombre as clase FROM escuelabeta_definitivo.padre_has_alumnos as tut
+    return db.query(`SELECT u.*, cla.nombre as clase, cla.id as clases_id FROM escuelabeta_definitivo.padre_has_alumnos as tut
     JOIN escuelabeta_definitivo.usuarios as u on u.id = tut.alumno_id
     JOIN escuelabeta_definitivo.alumnos_has_clases as alum on alum.alumno_id = tut.alumno_id
     LEFT JOIN clases cla ON cla.id = alum.clases_id
