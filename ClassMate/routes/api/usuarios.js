@@ -1,5 +1,5 @@
 const { createToken } = require('../../helpers/utils');
-const { create, getByEmail, getByTutorId, getTutor, getById } = require('../../models/usuario.model');
+const { create, getByEmail, getByTutorId, getTutor, getById, getTutorByName } = require('../../models/usuario.model');
 
 const router = require('express').Router();
 
@@ -37,6 +37,18 @@ router.post('/login', async (req, res) => {
     }
 })
 
+// Recuperar Usuario por nombre
+router.get('/tutor/:nombre', async (req, res) => {
+    const { nombre } = req.params
+    try {
+        const [tutor] = await getTutorByName(nombre)
+        console.log(tutor)
+        res.json(tutor)
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
+
 // Usuario alumnos por tutorId
 router.get('/tutor/:tutorId', async (req, res) => {
     const { tutorId } = req.params
@@ -68,6 +80,7 @@ router.get('/:userId', async (req, res) => {
         res.json({ fatal: error.message })
     }
 })
+
 
 
 
