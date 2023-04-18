@@ -30,12 +30,18 @@ const getTutor = () => {
     return db.query("SELECT * FROM escuelabeta_Definitivo.usuarios where usuarios.rol = 'tutor'")
 }
 
+// Buscar usuario por rol y nombre
+const getTutorByName = (nombreUsuario) => {
+    return db.query(`SELECT * FROM escuelabeta_Definitivo.usuarios where usuarios.nombre LIKE ? AND rol = 'tutor'`, [`%${nombreUsuario}%`])
+}
+
 module.exports = {
     create,
     getByEmail,
     getById,
     getByTutorId,
-    getTutor
+    getTutor,
+    getTutorByName
 };
 /*
 nombre varchar(100) 
