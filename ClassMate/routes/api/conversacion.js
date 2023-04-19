@@ -29,7 +29,7 @@ router.get('/:conversacionId', async (req, res) => {
     try {
         const [asunto] = await getConversacionById(conversacionId)
         if (asunto.length === 0) {
-            res.json('No existe conversación')
+            return res.json({ fatal: 'No existe conversación' })
         }
         res.json(asunto)
     } catch (error) {
@@ -57,7 +57,7 @@ router.get('/mensaje/:conversacionId', async (req, res) => {
         const [mensaje] = await getMensajeByConversacionId(conversacionId)
         console.log(mensaje);
         if (mensaje.length === 0) {
-            res.json('No hay mensajes en esta conversación')
+            return res.json({ fatal: 'No hay mensajes en esta conversación' })
         }
         res.json(mensaje)
     } catch (error) {
