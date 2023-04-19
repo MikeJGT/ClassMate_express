@@ -23,4 +23,8 @@ router.use('/clase', require('./api/clases'));
 //asignatura
 router.use('/asignatura', require('./api/asignaturas'));
 
+
+//Alumnos
+router.use('/alumnos', require('./api/alumnos'));
+
 module.exports = router;

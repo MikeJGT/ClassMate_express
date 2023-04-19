@@ -9,7 +9,7 @@
 
 @urlAsignatura = /api/asignatura
 
-
+@urlAlumnos = /api/alumnos
 ### USUARIO
 
 POST {{host}}{{urlusuarios}}/login
@@ -58,7 +58,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoi
 ###
 
 //Recuperar un alumnos por id
-GET  {{host}}{{urlProfesores}}/alumno/4
+GET  {{host}}{{urlProfesores}}/alumno/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
 ###
 POST {{host}}{{urlProfesores}}/asignatura/1
@@ -107,6 +107,12 @@ GET {{host}}{{urlTareas}}/profesor/3
 
 ###Recupera tarea  profesor por ID 
 GET {{host}}{{urlTareas}}/1
+
+
+### Get tareas by asignatura ID
+GET {{host}}{{urlTareas}}/asignatura/1
+
+
 
 ###Insertar la tarea
 POST {{host}}{{urlTareas}}
@@ -182,3 +188,10 @@ DELETE {{host}}{{urlHorario}}/2
 ### Recupera todas las asignaturas
 GET {{host}}{{urlAsignatura}}
 
+
+### Get Asignaturas by claseId
+GET {{host}}{{urlAsignatura}}/2
+
+
+###
+GET {{host}}{{urlAlumnos}}/2

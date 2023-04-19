@@ -1,4 +1,4 @@
-const { insertTarea, getTaskByClassId, modifyTarea, deleteTarea, getTaskByProfesorId, getTaskProfesorByIDTarea } = require('../../models/tarea.model');
+const { insertTarea, getTaskByClassId, modifyTarea, deleteTarea, getTaskByProfesorId, getTaskProfesorByIDTarea, getTareasByAsigId } = require('../../models/tarea.model');
 
 const router = require('express').Router();
 
@@ -24,6 +24,16 @@ router.get('/profesor/:profesorId', async (req, res) => {
     }
 })
 
+//Sacar tarea por profesorID
+router.get('/asignatura/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const [clases] = await getTareasByAsigId(id);
+        res.json(clases);
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+})
 //sacar tarea profesor por ID Tarea
 router.get('/:idTarea', async (req, res) => {
     const { idTarea } = req.params
