@@ -2,15 +2,19 @@ const { insertHorario, getHorarioByClaseId, updateHorario, deleteHorarioClaseId,
 
 const router = require('express').Router();
 
-// Insertar horario
-router.post('/', async (req, res) => {
+
+// Recuperar horario para profesores
+router.get('/profesor/:profesorId', async (req, res) => {
+    const { profesorId } = req.params
+
     try {
-        const [horario] = await insertHorario(req.body)
-        res.json(horario)
+        const [horarioProfe] = await getHorarioByProfesorId(profesorId)
+        res.json(horarioProfe)
     } catch (error) {
         res.json({ fatal: error.message })
     }
-})
+});
+
 
 // Recuperar horario por Clase
 router.get('/:claseId', async (req, res) => {
@@ -25,6 +29,8 @@ router.get('/:claseId', async (req, res) => {
     }
 });
 
+
+
 // Modificar horario de la Clase
 router.put('/:claseId', async (req, res) => {
     const { claseId } = req.params
@@ -36,6 +42,18 @@ router.put('/:claseId', async (req, res) => {
         res.json({ fatal: error.message })
     }
 });
+
+
+// Insertar horario
+router.post('/', async (req, res) => {
+    try {
+        const [horario] = await insertHorario(req.body)
+        res.json(horario)
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
+
 
 // Borrar horario de la clase
 router.delete('/:claseId', async (req, res) => {
@@ -49,17 +67,7 @@ router.delete('/:claseId', async (req, res) => {
     }
 });
 
-// Recuperar horario para profesores
-router.get('/profesor/:profesorId', async (req, res) => {
-    const { profesorId } = req.params
 
-    try {
-        const [horarioProfe] = await getHorarioByProfesorId(profesorId)
-        res.json(horarioProfe)
-    } catch (error) {
-        res.json({ fatal: error.message })
-    }
-});
 
 
 
