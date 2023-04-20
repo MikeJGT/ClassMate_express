@@ -195,3 +195,17 @@ GET {{host}}{{urlAsignatura}}/2
 
 ###
 GET {{host}}{{urlAlumnos}}/2
+
+### Recupera alumno con clasesID
+
+GET {{host}}{{urlAlumnos}}/clases
+
+### Insert alumno por clase
+
+POST {{host}}{{urlAlumnos}}/alumnoByClass
+Content-Type: application/json
+
+{
+    "alumno_id": 9, 
+    "clases_id": 2
+}
