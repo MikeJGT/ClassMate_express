@@ -44,12 +44,15 @@ const deleteTarea = (tareaId) => {
     )
 }
 
+// Query sacar tarea por asignaturaId
+
 const getTareasByAsigId = (asignaturaId) => {
-    return db.query(`SELECT t.*, asig.nombre as "asignatura", c.nombre as "clase",u.nombre as 'Profesor'  FROM escuelabeta_definitivo.tareas as t
+    return db.query(`SELECT t.*, asig.nombre as "asignatura", c.nombre as "clase",u.nombre as 'Profesor'  FROM escuelabeta_definitivo.tareas as t 
     JOIN escuelabeta_definitivo.clases as c on c.id = t.clases_id
     JOIN escuelabeta_definitivo.asignaturas as asig ON asig.id = t.asignaturas_id
     JOIN escuelabeta_definitivo.usuarios as u on u.id = asig.profesor_id
-    where asig.id = ?`, [asignaturaId]);
+    where asig.id = ?
+    ORDER BY t.creacion_fecha DESC;`, [asignaturaId]);
 }
 
 
