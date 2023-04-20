@@ -28,11 +28,10 @@ const deleteHorarioClaseId = (claseId) => {
 // Recuperar Horario profesorId
 
 const getHorarioByProfesorId = (profesorId) => {
-    return db.query(`SELECT h.*,asig.nombre as "asignatura", c.nombre as "clase", u.nombre as "profesor" FROM escuelabeta_Definitivo.horario as h
-                    JOIN escuelabeta_Definitivo.asignaturas as asig on asig.profesor_id = h.asignaturas_id
-                    JOIN escuelabeta_Definitivo.clases as c on c.id = h.clases_id
-                    JOIN escuelabeta_Definitivo.usuarios as u on u.id = asig.profesor_id
-                    where profesor_id = ?;`, [profesorId])
+    return db.query(`SELECT h.*,asig.nombre as "asignatura", c.nombre as "clase" FROM escuelabeta_Definitivo.horario as h
+    JOIN escuelabeta_Definitivo.asignaturas as asig on asig.id = h.asignaturas_id
+    JOIN escuelabeta_Definitivo.clases as c on c.id = h.clases_id
+    where profesor_id = ?;`, [profesorId])
 };
 
 
