@@ -191,7 +191,16 @@ GET {{host}}{{urlAsignatura}}
 
 ### Get Asignaturas by claseId
 GET {{host}}{{urlAsignatura}}/2
+###
 
+### Insertar asignatura por profesor id
+POST {{host}}{{urlAsignatura}}/1
+Content-Type: application/json
+
+{
+    "nombre": "Paddel",
+    "profesor_id": 1
+}
 
 ###
 GET {{host}}{{urlAlumnos}}/2

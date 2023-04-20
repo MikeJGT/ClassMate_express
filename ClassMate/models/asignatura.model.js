@@ -11,8 +11,13 @@ left join asignaturas as a on h.asignaturas_id=a.id
 where c.id=?;`, [claseId]);
 }
 
+const crearAsignatura = ({ nombre }, profesorId) => {
+    return db.query(`INSERT INTO asignaturas (nombre, profesor_id) VALUES (?, ?)`, [nombre, profesorId])
+}
+
 
 module.exports = {
     getAllAsignaturas,
-    getAsignaturaByClaseId
+    getAsignaturaByClaseId,
+    crearAsignatura
 }
