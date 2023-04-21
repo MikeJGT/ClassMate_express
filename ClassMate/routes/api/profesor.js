@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getAlumnos, insertSubject, getAlumno } = require('../../models/profesor.model');
+const { getAlumnos, insertSubject, getAlumno, inserObservation } = require('../../models/profesor.model');
 
 // Ver Alumnos
 router.get('/alumno', async (req, res) => {
@@ -37,6 +37,16 @@ router.post('/asignatura/:profesorId', async (req, res) => {
         res.json({ fatal: error.message })
     }
     console.log(req.params)
+})
+
+//Insertar Observacion
+router.post('/observacion', async (req, res) => {
+    try {
+        const [observacion] = await inserObservation(req.body)
+        res.json(observacion);
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
 })
 
 

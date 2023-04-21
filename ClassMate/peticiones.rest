@@ -10,6 +10,8 @@
 @urlAsignatura = /api/asignatura
 
 @urlAlumnos = /api/alumnos
+
+@urlTutor = /api/tutor
 ### USUARIO
 
 POST {{host}}{{urlusuarios}}/login
@@ -67,6 +69,16 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoi
 
 {
     "nombre": "Ingles"
+}
+### Insertar conversacion
+POST {{host}}{{urlProfesores}}/observacion
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
+
+{
+    "titulo": "Comprobar",
+    "contenido": "funciona",
+    "alumno_id": 6
 }
 
 ### CONVERSACIONES
@@ -214,3 +226,9 @@ GET {{host}}{{urlAlumnos}}
 
 ###
 DELETE {{host}}{{urlAlumnos}}/2
+
+
+### TUTOR ####
+
+### Get datos de observacion alumnos por tutorID
+GET {{host}}{{urlTutor}}/observacion/5
