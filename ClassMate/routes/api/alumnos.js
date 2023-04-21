@@ -1,5 +1,17 @@
 const router = require('express').Router();
-const { getAlumnosByClaseId, getAlumnosWithClassId, insertAlumnosByClassID, deleteAlumnoById } = require('../../models/alumno.model');
+const { getAlumnosByClaseId, getAlumnosWithClassId, insertAlumnosByClassID, deleteAlumnoById, getAllAlumnosInUsuarios } = require('../../models/alumno.model');
+
+
+
+router.get('/', async (req, res) => {
+
+    try {
+        const [alumnos] = await getAllAlumnosInUsuarios();
+        res.json(alumnos);
+    } catch (error) {
+        res.json({ fatal: error.message });
+    }
+})
 
 //Recupera Alumnos con classID
 router.get('/clases', async (req, res) => {

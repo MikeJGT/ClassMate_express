@@ -158,8 +158,8 @@ Content-Type: application/json
 {
     "inicio": "09:00:00",
     "fin": "10:00:00",
-    "dia": "l",
-    "asignaturas_id": 2,
+    "dia": "x",
+    "asignaturas_id": 3,
     "clases_id": 2
 }
 
@@ -191,30 +191,13 @@ GET {{host}}{{urlAsignatura}}
 
 ### Get Asignaturas by claseId
 GET {{host}}{{urlAsignatura}}/2
-###
 
-### Insertar asignatura por profesor id
-POST {{host}}{{urlAsignatura}}/1
-Content-Type: application/json
 
-{
-    "nombre": "Paddel",
-    "profesor_id": 1
-}
-
-###
+### Get alumnos by clase id falta el rol
 GET {{host}}{{urlAlumnos}}/2
 
-### Recupera alumno con clasesID
+### GET ALL alumnos in usuarios
+GET {{host}}{{urlAlumnos}}
 
-GET {{host}}{{urlAlumnos}}/clases
-
-### Insert alumno por clase
-
-POST {{host}}{{urlAlumnos}}/alumnoByClass
-Content-Type: application/json
-
-{
-    "alumno_id": 9, 
-    "clases_id": 2
-}
+###
+DELETE {{host}}{{urlAlumnos}}/2
