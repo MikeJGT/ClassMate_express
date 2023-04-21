@@ -1,4 +1,4 @@
-const { getAllAsignaturas, getAsignaturaByClaseId, crearAsignatura } = require("../../models/asignatura.model");
+const { getAllAsignaturas, getAsignaturaByClaseId, crearAsignatura, getAsignaturaByAlumnoId } = require("../../models/asignatura.model");
 const router = require('express').Router();
 
 
@@ -33,6 +33,16 @@ router.post('/:profesorId', async (req, res) => {
         res.json({ fatal: error.message })
     }
 });
+
+router.get('/alumnoAsignatura/:alumnoId', async (req, res) => {
+    const { alumnoId } = req.params
+    try {
+        const [asignaturas] = await getAsignaturaByAlumnoId(alumnoId)
+        res.json(asignaturas)
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
 
 
 module.exports = router;
