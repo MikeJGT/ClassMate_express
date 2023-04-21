@@ -10,6 +10,9 @@
 @urlAsignatura = /api/asignatura
 
 @urlAlumnos = /api/alumnos
+
+@urlCalificacion =/api/calificacion
+
 ### USUARIO
 
 POST {{host}}{{urlusuarios}}/login
@@ -214,3 +217,38 @@ GET {{host}}{{urlAlumnos}}
 
 ###
 DELETE {{host}}{{urlAlumnos}}/2
+
+
+
+
+
+### CALIFICACIONES
+
+### Insertar valores por defecto para alumnoID y AsignaturaId
+### Cuando arranca el componente ngOnInit (me ahorro el formulario del insert) 
+POST {{host}}{{urlCalificacion}}
+Content-Type: application/json
+
+{
+    "alumno_id":1,
+    "asignaturas_id":5
+}
+
+
+### Get Notas by alumnoId y claseId
+POST {{host}}{{urlCalificacion}}/all
+Content-Type: application/json
+
+{
+    "alumno_id":2,
+    "clases_id":2
+}
+
+### Get Notas by alumnoId
+POST {{host}}{{urlCalificacion}}/update
+Content-Type: application/json
+
+{
+    "nota":"bien",
+    "id":36
+}
