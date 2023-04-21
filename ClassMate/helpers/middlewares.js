@@ -22,8 +22,17 @@ const checkToken = async (req, res, next) => {
     req.user = user[0];
 
     next();
-
 };
 
+const checkUser = (req, res, next) => {
+    if (req.usuarios.rol !== 'profesor' || 'alumno' || 'tutor') {
+        res.json({ fatal: 'El usuario logueado no es el que debia' })
+    }
+    next();
+}
 
-module.exports = { checkToken }
+
+module.exports = {
+    checkToken,
+    checkUser
+}
