@@ -30,4 +30,7 @@ router.use('/alumnos', require('./api/alumnos'));
 //Tutor
 router.use('/tutor', require('./api/tutor'));
 
+//Calificacion
+router.use('/calificacion', require('./api/calificacion'));
+
 module.exports = router;

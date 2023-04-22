@@ -11,6 +11,9 @@
 
 @urlAlumnos = /api/alumnos
 
+@urlCalificacion =/api/calificacion
+
+
 @urlTutor = /api/tutor
 ### USUARIO
 
@@ -226,7 +229,6 @@ GET {{host}}{{urlAlumnos}}
 
 ###
 DELETE {{host}}{{urlAlumnos}}/2
-
 
 ### TUTOR ####
 
