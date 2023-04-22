@@ -21,4 +21,8 @@ const inserObservation = ({ titulo, contenido, alumno_id }) => {
         [titulo, contenido, alumno_id])
 }
 
-module.exports = { getAlumnos, insertSubject, getAlumno, inserObservation }
+const getAllProfesor = () => {
+    return db.query("SELECT * FROM usuarios where rol = 'profesor';")
+}
+
+module.exports = { getAlumnos, insertSubject, getAlumno, inserObservation, getAllProfesor }

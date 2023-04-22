@@ -70,7 +70,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoi
 {
     "nombre": "Ingles"
 }
-### Insertar conversacion
+
+###Recupera todos los profesores
+GET {{host}}{{urlProfesores}}/all
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyNzYzOTYzLCJpYXQiOjE2ODIxNTkxNjN9.TqoIr4sVC_sbNdSQJgC8WtHw9ZrAuigOH8LRCiwRFew
+
+### Insertar observacion
 POST {{host}}{{urlProfesores}}/observacion
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
