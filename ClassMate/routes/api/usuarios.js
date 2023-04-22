@@ -1,5 +1,5 @@
 const { createToken } = require('../../helpers/utils');
-const { create, getByEmail, getByTutorId, getTutor, getById, getTutorByName } = require('../../models/usuario.model');
+const { create, getByEmail, getByTutorId, getTutor, getById, getTutorByName, getGeneroByID } = require('../../models/usuario.model');
 
 const router = require('express').Router();
 
@@ -65,6 +65,17 @@ router.get('/tutor', async (req, res) => {
     try {
         const [tutor] = await getTutor();
         res.json(tutor)
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
+
+// Get genero By ID
+router.get('/genero/:id', async (req, res) => {
+    const { id } = req.params
+    try {
+        const [genero] = await getGeneroByID(id);
+        res.json(genero);
     } catch (error) {
         res.json({ fatal: error.message })
     }

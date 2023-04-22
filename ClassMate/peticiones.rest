@@ -21,7 +21,7 @@ POST {{host}}{{urlusuarios}}/login
 Content-Type: application/json
 
 { 
-"email": "pepe@gmail.com",
+"email": "tutor@mail.com",
 "password": "12345"
 }
 
@@ -51,13 +51,15 @@ GET {{host}}{{urlusuarios}}/tutor/id/5
 GET {{host}}{{urlusuarios}}/tutor
 
 ###Recuperar usuario por Id
-GET  {{host}}{{urlusuarios}}/2
+GET  {{host}}{{urlusuarios}}/1
 
 ### Recuperar usuario por nombre
 GET {{host}}{{urlusuarios}}/tutor/juan
 
-### PROFESOR
+###
+GET {{host}}{{urlusuarios}}/genero/2
 
+### PROFESOR
 GET {{host}}{{urlProfesores}}/alumno
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWx1bW5vIiwiZXhwIjoxNjgyMDk1MTE1LCJpYXQiOjE2ODE0OTAzMTV9.PMIml7j_2aTcanXidrUp1fZm6vWWw8ZjCmEBeMFsJpc
 ###

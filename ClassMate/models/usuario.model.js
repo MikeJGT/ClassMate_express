@@ -38,13 +38,19 @@ const getTutorByName = (nombreUsuario) => {
     return db.query(`SELECT * FROM escuelabeta_Definitivo.usuarios where usuarios.nombre LIKE ? AND rol = 'tutor'`, [`%${nombreUsuario}%`])
 }
 
+const getGeneroByID = (id) => {
+    return db.query(`SELECT u.genero FROM escuelabeta_definitivo.usuarios as u where u.id=?;`, [id])
+
+}
+
 module.exports = {
     create,
     getByEmail,
     getById,
     getByTutorId,
     getTutor,
-    getTutorByName
+    getTutorByName,
+    getGeneroByID
 };
 /*
 nombre varchar(100) 
