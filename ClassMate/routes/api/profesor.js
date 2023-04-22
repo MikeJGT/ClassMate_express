@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { getAlumnos, insertSubject, getAlumno, inserObservation } = require('../../models/profesor.model');
+const { getAlumnos, insertSubject, getAlumno, inserObservation, getAllProfesor } = require('../../models/profesor.model');
 
 // Ver Alumnos
 router.get('/alumno', async (req, res) => {
@@ -48,6 +48,14 @@ router.post('/observacion', async (req, res) => {
         res.json({ fatal: error.message });
     }
 })
-
+//Sacar todos los profesores
+router.get('/all', async (req, res) => {
+    try {
+        const [profesor] = await getAllProfesor()
+        res.json(profesor);
+    } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
 
 module.exports = router

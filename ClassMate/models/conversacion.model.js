@@ -11,8 +11,8 @@ const getConversacionById = (asuntoId) => {
 // MENSAJES
 
 // insertar mensaje
-const InsertMessage = ({ contenido, emisor_id, receptor_id, conversaciones_id, fecha }) => {
-    return db.query('INSERT INTO escuelabeta_definitivo.mensaje (contenido,emisor_id,receptor_id,conversaciones_id,fecha) VALUES (?,?,?,?,?);', [contenido, emisor_id, receptor_id, conversaciones_id, fecha])
+const InsertMessage = ({ contenido, emisor_id, receptor_id, conversaciones_id }) => {
+    return db.query('INSERT INTO escuelabeta_definitivo.mensaje (contenido,emisor_id,receptor_id,conversaciones_id) VALUES (?,?,?,?);', [contenido, emisor_id, receptor_id, conversaciones_id])
 }
 
 // Recuperar mensajes por conversación
