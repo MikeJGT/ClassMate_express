@@ -1,4 +1,4 @@
-const { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId, getConversaciones } = require('../../models/conversacion.model');
+const { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId, getConversaciones, deleteMensajeById } = require('../../models/conversacion.model');
 
 const router = require('express').Router();
 
@@ -61,6 +61,16 @@ router.get('/mensaje/:conversacionId', async (req, res) => {
         }
         res.json(mensaje)
     } catch (error) {
+        res.json({ fatal: error.message })
+    }
+})
+//Borrar mensaje by ID
+router.delete('/mensaje/:idMensaje', async (req, res) => {
+    const { idMensaje } = req.params
+    try {
+        const [removeMensaje] = await deleteMensajeById(idMensaje);
+        res.json(removeMensaje)
+    } catch {
         res.json({ fatal: error.message })
     }
 })

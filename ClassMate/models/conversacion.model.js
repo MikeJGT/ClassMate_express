@@ -20,7 +20,8 @@ const getMensajeByConversacionId = (conversacionId) => {
     return db.query(`SELECT u2.nombre as 'emisor',u.nombre as 'receptor',m.* FROM escuelabeta_definitivo.mensaje as m 
     join escuelabeta_definitivo.usuarios as u on u.id=m.receptor_id
     join escuelabeta_definitivo.usuarios as u2 on u2.id=m.emisor_id
-    where m.conversaciones_id=?;`, [conversacionId])
+    where m.conversaciones_id=?
+    order by fecha desc;`, [conversacionId])
 }
 
 // Recuperar Conversaciones
@@ -28,5 +29,8 @@ const getConversaciones = () => {
     return db.query('SELECT * FROM escuelabeta_Definitivo.conversaciones')
 }
 
-
-module.exports = { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId, getConversaciones }
+//Delete mensaje by Id
+const deleteMensajeById = (idMensaje) => {
+    return db.query('DELETE FROM mensaje WHERE mensaje.id = ?;', [idMensaje])
+}
+module.exports = { InsertConversation, getConversacionById, InsertMessage, getMensajeByConversacionId, getConversaciones, deleteMensajeById }
