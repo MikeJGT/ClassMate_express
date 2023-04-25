@@ -137,6 +137,9 @@ GET {{host}}{{urlConversaciones}}/mensaje/2
 ###
 GET {{host}}{{urlConversaciones}}
 
+### Borrar Mensaje por ID
+DELETE {{host}}{{urlConversaciones}}/mensaje/20
+
 ###TAREAS###
 
 ### Recuperar tarea por classId
