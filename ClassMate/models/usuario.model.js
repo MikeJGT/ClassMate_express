@@ -52,13 +52,3 @@ module.exports = {
     getTutorByName,
     getGeneroByID
 };
-/*
-nombre varchar(100) 
-apellidos varchar(100) 
-dni varchar(9) 
-email varchar(60) 
-password varchar(255) 
-rol enum('tutor', 'profesor', 'alumno', 'director') 
-genero enum('f', 'm') 
-direccion tinytext
-nacimiento*/
