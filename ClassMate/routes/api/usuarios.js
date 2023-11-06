@@ -42,7 +42,6 @@ router.get('/tutor/:nombre', async (req, res) => {
     const { nombre } = req.params
     try {
         const [tutor] = await getTutorByName(nombre)
-        console.log(tutor)
         res.json(tutor)
     } catch (error) {
         res.json({ fatal: error.message })
