@@ -5,7 +5,6 @@ const router = require('express').Router();
 
 //Regitro de usuario
 router.post('/registro', async (req, res) => {
-    //res.send('Funciona')
     try {
         const [result] = await create(req.body);
         res.json(result);
@@ -17,7 +16,6 @@ router.post('/registro', async (req, res) => {
 
 //Login para usuario
 router.post('/login', async (req, res) => {
-    //res.send('Funciona');
     try {
         const [result] = await getByEmail(req.body.email);
         //Si no existe email
