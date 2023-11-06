@@ -6,7 +6,6 @@ const { getAlumnos, insertSubject, getAlumno, inserObservation, getAllProfesor }
 router.get('/alumno', async (req, res) => {
     try {
         const [result] = await getAlumnos();
-        console.log(result);
         res.json(result);
     } catch (error) {
         res.json({ fatal: 'No hay alumnos' })
@@ -36,7 +35,6 @@ router.post('/asignatura/:profesorId', async (req, res) => {
     } catch (error) {
         res.json({ fatal: error.message })
     }
-    console.log(req.params)
 })
 
 //Insertar Observacion
